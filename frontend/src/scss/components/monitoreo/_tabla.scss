@@ -1,0 +1,30 @@
+@use '../../abstract/variables' as v;
+.table {
+	color: v.$white;
+	width: 100%;
+	&__header {
+		text-align: left;
+		background-color: v.$bg-dark-soft;
+	}
+
+	&__body {
+		text-align: left;
+		background-color: v.$bg-dark;
+	}
+
+	&__row {
+		&:nth-of-type(2n) {
+			background-color: v.$bg-dark-light;
+		}
+	}
+
+	&__head {
+		padding: v.$space-1r;
+		font-weight: bold;
+		color: v.$soft-gray;
+	}
+
+	&__cell {
+		padding: v.$space-1r;
+	}
+}
