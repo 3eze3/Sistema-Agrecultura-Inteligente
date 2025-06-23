@@ -1,0 +1,44 @@
+@use '../abstract/variables' as v;
+
+body {
+	min-height: 100dvh;
+	hyphens: manual;
+	font-smooth: always;
+	font-size: v.$font-size-body;
+	font-family: v.$poppins-md;
+	color: v.$soft-gray;
+	background-color: v.$bg-body;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+	font-size: v.$font-size-h1;
+}
+
+h2 {
+	font-size: v.$font-size-h2;
+}
+
+h3 {
+	font-size: v.$font-size-h3;
+}
+
+button {
+	font-size: v.$font-size-btn;
+}
+
+h1,
+h2,
+h3,
+button,
+figcaption {
+	color: v.$soft-gray;
+	font-family: v.$poppins-bd;
+}
+
+label,
+input {
+	font-family: v.$poppins-lg;
+	color: v.$soft-gray;
+}
