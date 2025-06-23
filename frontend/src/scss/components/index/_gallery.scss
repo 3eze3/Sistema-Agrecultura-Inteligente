@@ -1,0 +1,26 @@
+@use '../../abstract/mixins' as mx;
+@use '../../abstract/variables' as v;
+.gallery {
+	overflow-y: hidden;
+	@include mx.grid($gap: v.$space-2r, $columns: 3);
+	&__column {
+		padding-block: v.$space-7r;
+		@include mx.flex($gap: v.$space-2r);
+		&--reverse {
+			flex-direction: column-reverse;
+			transform: translateY(calc(-100% + 100dvh));
+			@include mx.reverse-effect(--scroll-gallery-login);
+		}
+	}
+
+	&__figure {
+		width: v.$layer-18-125r;
+		height: v.$layer-30-125r;
+		@include mx.flex($gap: v.$space-0-5r);
+	}
+
+	&__img {
+		aspect-ratio: 290/450;
+		border-radius: v.$space-1r;
+	}
+}
