@@ -1,0 +1,181 @@
+// --------------------------- Font-Face -----------------------------
+@font-face {
+	font-family: 'Poppins Bold';
+	font-weight: 700;
+	src: local('Poppins-Bold'),
+		url('../assets/fonts/Poppins-Bold.woff2') format('woff2'),
+		url('../assets/fonts/Poppins-Bold.woff') format('woff'),
+		url('../assets/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Poppins SemiBold';
+	font-weight: 600;
+	src: local('Poppins-SemiBold'),
+		url('../assets/fonts/Poppins-SemiBold.woff2') format('woff2'),
+		url('../assets/fonts/Poppins-SemiBold.woff') format('woff'),
+		url('../assets/fonts/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Poppins Medium';
+	font-weight: 500;
+	src: local('Poppins-Medium'),
+		url('../assets/fonts/Poppins-Medium.woff2') format('woff2'),
+		url('../assets/fonts/Poppins-Medium.woff') format('woff'),
+		url('../assets/fonts/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Poppins Light';
+	font-weight: 300;
+	src: local('Poppins-Light'),
+		url('../assets/fonts/Poppins-Light.woff2') format('woff2'),
+		url('../assets/fonts/Poppins-Light.woff') format('woff'),
+		url('../assets/fonts/Poppins-Light.ttf') format('truetype');
+}
+// --------------------------- Family Fonts ---------------------------
+$poppins-bd: 'Poppins Bold';
+$poppins-sb: 'Poppins SemiBold';
+$poppins-md: 'Poppins Medium';
+$poppins-lg: 'Poppins Light';
+// --------------------------- Size -----------------------------
+$breakpoint-sm: 375px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1440px;
+
+// --------------------------- Font Size -----------------------------
+$font-size-h1: 2.5em;
+$font-size-h2: 2em;
+$font-size-body: 1em;
+$font-size-h3: 1.3em;
+$font-size-md: 1.5em;
+$font-size-btn: 1.25em;
+$font-letter-space: 0.17em;
+// --------------------------- Escala de Containers ---------------------------
+$layer-3r: 3rem;
+$layer-11r: 11rem;
+$layer-20r: 20rem;
+$layer-25r: 25rem;
+$layer-42r: 42rem;
+$layer-60r: 60rem;
+$layer-13-875r: 13.875rem;
+$layer-30-125r: 30.125rem;
+$layer-18-125r: 18.125rem;
+$layer-20-938r: 20.938rem;
+// --------------------------- Escala de espaciamientos ---------------------------
+$space-0-25r: 0.25rem;
+$space-0-5r: 0.5rem;
+$space-0-75r: 0.75rem;
+$space-1r: 1rem;
+$space-1-2r: 1.2rem;
+$space-2r: 2rem;
+$space-2-5r: 2rem;
+$space-3r: 3rem;
+$space-5r: 5rem;
+$space-7r: 7rem;
+$space-9r: 9rem;
+$space-inline-1r-3r: 1rem 3.5rem;
+$space-inline-1r-2r: 1rem 2rem;
+$space-inline-1-75r-1r: 1.75rem 1rem;
+$space-inline-0-5r-1-8r: 0.5rem 1.8rem;
+
+// --------------------------- Colors ---------------------------------
+
+// Bg-Containers
+$bg-body: #000600;
+$bg-cards: #282820;
+$bg-cards-soft: #28282042;
+$bg-dark-soft: hsl(0 0% 0% / 1.2);
+$bg-dark: #171717;
+$bg-dark-light: hsl(0 0% 0% / 0.3);
+
+$bg-green-transparent: rgba(1, 32, 24, 0.059);
+$bg-linear-dark-green-light: linear-gradient(top, #000600, #5b5b4e);
+$bg-linear-dark-green: linear-gradient(to top, #000600, #282820);
+$bg-linear-green-gold: linear-gradient(
+	to bottom,
+	#556a5783,
+	transparent,
+	rgba(1, 66, 36, 0.665)
+);
+$bg-soft-green: #434b3c;
+$bg-soft-marron: #4a4a4a43;
+// Bg-Buttons
+$bg-btn: #7d8163;
+$bg-btn-dark: #3c3e30;
+$bg-btn-dark-light: #5d604b;
+// Titles, form, btns
+$soft-gray: #ececd0;
+$white: #fff;
+// Varialbes
+// -------------------------------------------------------------------------------------------------------------------
+$sh-soft-green: 0 0 10px rgba(33, 150, 83, 0.2), 5px 0 30px rgba(0, 0, 0, 0.2),
+	-5px 0 30px rgba(76, 175, 80, 0.2), 5px 0 80px rgba(0, 0, 0, 0.2),
+	-5px 0 80px rgba(33, 150, 83, 0.2), 0 0 10px rgba(0, 0, 0, 0.2),
+	-3px 0 30px rgba(76, 175, 80, 0.2), 3px 0 30px rgba(0, 0, 0, 0.2);
+
+// ------------------------------------ Head -------------------------------------
+$status-shadows: (
+	low: (
+		box-shadow: (
+			inset 0 0 30px rgba(255, 76, 76, 0.6),
+			inset 10px 0 60px rgba(255, 138, 138, 0.5),
+			inset -10px 0 60px rgba(255, 100, 100, 0.5),
+			inset 10px 0 250px rgba(255, 138, 138, 0.3),
+			inset -10px 0 250px rgba(255, 100, 100, 0.3),
+			0 0 30px rgba(255, 76, 76, 0.6),
+			-5px 0 60px rgba(255, 138, 138, 0.5),
+			5px 0 60px rgba(255, 100, 100, 0.5),
+		),
+	),
+	medium: (
+		box-shadow: (
+			inset 0 0 30px rgba(255, 235, 59, 0.6),
+			inset 10px 0 60px rgba(255, 245, 157, 0.5),
+			inset -10px 0 60px rgba(255, 255, 176, 0.5),
+			inset 10px 0 250px rgba(255, 245, 157, 0.3),
+			inset -10px 0 250px rgba(255, 255, 176, 0.3),
+			0 0 30px rgba(255, 235, 59, 0.6),
+			-5px 0 60px rgba(255, 245, 157, 0.5),
+			5px 0 60px rgba(255, 255, 176, 0.5),
+		),
+	),
+	high: (
+		box-shadow: (
+			inset 0 0 30px rgba(76, 175, 80, 0.6),
+			inset 10px 0 60px rgba(129, 199, 132, 0.5),
+			inset -10px 0 60px rgba(100, 180, 100, 0.5),
+			inset 10px 0 250px rgba(129, 199, 132, 0.3),
+			inset -10px 0 250px rgba(100, 180, 100, 0.3),
+			0 0 30px rgba(76, 175, 80, 0.6),
+			-5px 0 60px #81c78480,
+			5px 0 60px #64b46480,
+		),
+	),
+);
+
+// ----------------------------- Gota ----------------------------------
+$status-gota-shadows: (
+	default: (
+		background-color: $bg-soft-marron,
+		border: 3px solid $bg-soft-marron,
+		box-shadow: inset -25px 10px 0px -10px #45444443,
+	),
+	low: (
+		background-color: rgba(255, 76, 76, 0.6),
+		border: 3px solid rgba(255, 76, 76, 0.6),
+		box-shadow: inset -25px 10px 0 -10px rgba(255, 76, 76, 0.6),
+	),
+	medium: (
+		background-color: rgba(255, 235, 59, 0.6),
+		border: 3px solid rgba(255, 235, 59, 0.6),
+		box-shadow: inset -25px 10px 0 -10px rgba(255, 235, 59, 0.6),
+	),
+	high: (
+		background-color: rgba(76, 175, 80, 0.6),
+		border: 3px solid rgba(76, 175, 80, 0.6),
+		box-shadow: inset -25px 10px 0 -10px rgba(76, 175, 80, 0.6),
+	),
+);

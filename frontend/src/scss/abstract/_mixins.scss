@@ -1,0 +1,68 @@
+@use './variables' as v;
+@mixin mobile($query) {
+	@media (width <= $query) {
+		@content;
+	}
+}
+
+@mixin flex($align: center, $justify: center, $direction: column, $gap: 2rem) {
+	display: flex;
+	flex-direction: $direction;
+	align-items: $align;
+	justify-content: $justify;
+	gap: $gap;
+}
+
+@mixin grid($columns, $gap: 2rem) {
+	display: grid;
+	grid-template-columns: repeat($columns, 1fr);
+	gap: $gap;
+}
+
+@mixin gridResponsive() {
+	display: grid;
+	grid-template-columns: repeat(auto-fill minmax(15rem, 1fr));
+}
+
+@mixin reverse-effect($name) {
+	& {
+		animation: adjust-position linear forwards;
+		animation-timeline: $name;
+	}
+}
+
+// Mixin to apply 'gota' styles dynamically
+@mixin status-gota($status: default) {
+	$entry: map-get(v.$status-gota-shadows, $status);
+	@if $entry != null {
+		@each $prop, $value in $entry {
+			#{$prop}: $value;
+		}
+	} @else {
+		@warn "Unknown status `#{$status}` for gota. Available: #{map.keys($status-gota-shadows)}";
+	}
+}
+
+// Mixin to apply status shadow dynamically
+@mixin status-shadow($status) {
+	$entry: map-get(v.$status-shadows, $status);
+	@if $entry != null {
+		@each $prop, $value in $entry {
+			#{$prop}: $value;
+		}
+	} @else {
+		@warn "Unknown status `#{$status}`. Available statuses: #{map.keys($status-shadows)}";
+	}
+}
+
+// Animaciones
+
+@keyframes adjust-position {
+	from {
+		transform: translateY(calc(-100% + 100vh));
+	}
+
+	to {
+		transform: translateY(calc(100% - 100vh));
+	}
+}
