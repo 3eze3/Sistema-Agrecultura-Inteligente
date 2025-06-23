@@ -1,0 +1,31 @@
+@use '../../abstract/mixins' as mx;
+@use '../../abstract/variables' as v;
+.main {
+	min-height: 100dvh;
+	position: relative;
+	overflow: hidden;
+	padding-inline: v.$space-inline-1r-3r;
+	@include mx.flex($direction: row, $justify: space-between);
+	&__logo {
+		width: v.$layer-11r;
+		height: v.$layer-13-875r;
+		position: absolute;
+		top: 0;
+		right: 0;
+		transition: filter 0.3s ease-in-out;
+		filter: contrast(1.2) saturate(0.3);
+		&:hover {
+			filter: contrast(1) saturate(2);
+		}
+	}
+
+	&__wrapper {
+		height: 100dvh;
+		max-width: v.$layer-60r;
+		scroll-timeline: --scroll-gallery-login block;
+		overflow-y: scroll;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
