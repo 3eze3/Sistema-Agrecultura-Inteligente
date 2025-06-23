@@ -1,0 +1,325 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before,
+*::after {
+  display: block;
+}
+
+img,
+canvas {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 288/400;
+  object-fit: cover;
+  object-position: center center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+table,
+tr,
+td,
+th,
+thead,
+tbody,
+tfoot {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font: inherit;
+}
+
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+form,
+input,
+button,
+label {
+  font: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  outline: none;
+}
+form:focus,
+input:focus,
+button:focus,
+label:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: unset;
+}
+
+button,
+label {
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@font-face {
+  font-family: "Poppins Bold";
+  font-weight: 700;
+  src: local("Poppins-Bold"), url("../assets/fonts/Poppins-Bold.woff2") format("woff2"), url("../assets/fonts/Poppins-Bold.woff") format("woff"), url("../assets/fonts/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins SemiBold";
+  font-weight: 600;
+  src: local("Poppins-SemiBold"), url("../assets/fonts/Poppins-SemiBold.woff2") format("woff2"), url("../assets/fonts/Poppins-SemiBold.woff") format("woff"), url("../assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins Medium";
+  font-weight: 500;
+  src: local("Poppins-Medium"), url("../assets/fonts/Poppins-Medium.woff2") format("woff2"), url("../assets/fonts/Poppins-Medium.woff") format("woff"), url("../assets/fonts/Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins Light";
+  font-weight: 300;
+  src: local("Poppins-Light"), url("../assets/fonts/Poppins-Light.woff2") format("woff2"), url("../assets/fonts/Poppins-Light.woff") format("woff"), url("../assets/fonts/Poppins-Light.ttf") format("truetype");
+}
+body {
+  min-height: 100dvh;
+  hyphens: manual;
+  font-smooth: always;
+  font-size: 1em;
+  font-family: "Poppins Medium";
+  color: #ececd0;
+  background-color: #000600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+button {
+  font-size: 1.25em;
+}
+
+h1,
+h2,
+h3,
+button,
+figcaption {
+  color: #ececd0;
+  font-family: "Poppins Bold";
+}
+
+label,
+input {
+  font-family: "Poppins Light";
+  color: #ececd0;
+}
+
+@keyframes adjust-position {
+  from {
+    transform: translateY(calc(-100% + 100vh));
+  }
+  to {
+    transform: translateY(calc(100% - 100vh));
+  }
+}
+.main {
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  padding-inline: 1rem 3.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.main__logo {
+  width: 11rem;
+  height: 222px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  filter: contrast(1.2) saturate(0.3);
+  transition: filter 0.3s ease-in-out;
+}
+.main__logo:hover {
+  filter: contrast(1) saturate(2);
+}
+.main__wrapper {
+  height: 100dvh;
+  max-width: 60rem;
+  scroll-timeline: --scroll-gallery-login block;
+  overflow-y: scroll;
+}
+.main__wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.login {
+  width: 25rem;
+  min-height: 20rem;
+  padding-inline: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  gap: 3rem;
+}
+.login__title {
+  letter-spacing: 0.17rem;
+}
+
+.gallery {
+  overflow-y: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.gallery__column {
+  padding-block: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.gallery__column--reverse {
+  flex-direction: column-reverse;
+  transform: translateY(calc(-100% + 100dvh));
+}
+.gallery__column--reverse {
+  animation: adjust-position linear forwards;
+  animation-timeline: --scroll-gallery-login;
+}
+.gallery__figure {
+  width: 290px;
+  height: 482px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.gallery__img {
+  aspect-ratio: 290/450;
+  border-radius: 1rem;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.form__group {
+  outline: solid 1px #fff;
+  width: 100%;
+  position: relative;
+  min-height: 3rem;
+  border-radius: 0.5rem;
+}
+.form__label {
+  top: 0.75rem;
+  left: 1rem;
+  position: absolute;
+  transition: transform 0.15s ease-in-out, font-weight 0.15s ease;
+}
+.form__label--up-label {
+  transform: scale(0.7) translate(-1.12rem, -1.4rem);
+  font-weight: bold;
+}
+.form__input {
+  padding: 1.75rem 1rem;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.form__btn {
+  width: 100%;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  padding-block: 0.4rem;
+  background-color: #7d8163;
+  overflow: hidden;
+  position: relative;
+}
+.form__btn:hover .form__btn-cover {
+  transform: translateY(0%);
+  width: 100%;
+  height: 100%;
+  border-radius: 0%;
+}
+.form__btn:hover .form__btn-label-1 {
+  transform: translateY(-100%);
+}
+.form__btn:hover .form__btn-label-2 {
+  transform: translateY(-100%);
+}
+.form__btn-cover {
+  background-color: #3c3e30;
+  width: 100%;
+  height: 100%;
+  border-radius: 70%;
+  position: absolute;
+  z-index: 0;
+  transform: translateY(100%);
+  left: 0;
+  bottom: 0;
+  transition: transform 0.25s ease-in, height 0.25s ease-in-out, border-radius 0.25s ease-in-out, width 0.25s ease-in-out;
+}
+.form__btn-label {
+  position: relative;
+  padding-block: 0.25rem;
+  display: block;
+  overflow: hidden;
+  z-index: 10;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.form__btn-label-2 {
+  position: absolute;
+  color: #fff;
+  width: 100%;
+}
+@media (width <= 459px) {
+  .form__btn-label-2 {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
