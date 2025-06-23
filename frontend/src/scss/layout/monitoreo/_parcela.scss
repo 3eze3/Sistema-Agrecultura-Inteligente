@@ -1,0 +1,7 @@
+@use '../../abstract/mixins' as mx;
+@use '../../abstract/variables' as v;
+.monitor {
+	padding-block: v.$space-1r;
+	min-height: 100dvh;
+	@include mx.flex($justify: space-between, $gap: v.$space-1r);
+}
