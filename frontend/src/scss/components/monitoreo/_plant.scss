@@ -13,7 +13,7 @@
 	&:hover {
 		box-shadow: v.$sh-soft-green;
 	}
-	@include mx.flex($gap: v.$space-3r);
+	@include mx.flex($gap: v.$space-2r);
 
 	&__wrapper {
 		width: 100%;
@@ -59,6 +59,7 @@
 	}
 
 	&__detail {
+		width: 12rem;
 		font-size: v.$font-size-md;
 		@include mx.flex($gap: 0rem);
 		padding: v.$space-inline-1r-2r;
