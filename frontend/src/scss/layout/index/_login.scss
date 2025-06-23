@@ -1,0 +1,11 @@
+@use '../../abstract/mixins' as mx;
+@use '../../abstract/variables' as v;
+.login {
+	width: v.$layer-25r;
+	min-height: v.$layer-20r;
+	padding-inline: v.$space-2r;
+	@include mx.flex($justify: stretch, $gap: v.$space-3r);
+	&__title {
+		letter-spacing: v.$font-letter-space;
+	}
+}
