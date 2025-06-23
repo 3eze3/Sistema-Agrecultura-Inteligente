@@ -1,0 +1,134 @@
+@use '../../abstract/mixins' as mx;
+@use '../../abstract/variables' as v;
+// Pagina como de lluvia con gotas en la pagina
+.parcela {
+	cursor: pointer;
+	width: v.$layer-42r;
+	height: v.$layer-42r;
+	margin: auto;
+	border-radius: 50%;
+	padding: v.$space-2r;
+	transition: box-shadow 0.4s ease-in-out;
+	background-image: v.$bg-linear-green-gold;
+	&:hover {
+		box-shadow: v.$sh-soft-green;
+	}
+	@include mx.flex($gap: v.$space-3r);
+
+	&__wrapper {
+		width: 100%;
+		padding-inline: v.$space-inline-0-5r-1-8r;
+		@include mx.flex($justify: space-between, $gap: 0rem, $direction: row);
+	}
+
+	&__head {
+		height: v.$layer-20r;
+		width: v.$layer-20r;
+		border-radius: 50%;
+		background-color: v.$bg-soft-marron;
+		position: relative;
+		transition: box-shadow 2s ease;
+		@include mx.flex($direction: row, $gap: 0rem);
+		&.is-low {
+			@include mx.status-shadow(low);
+		}
+		&.is-medium {
+			@include mx.status-shadow(medium);
+		}
+		&.is-high {
+			@include mx.status-shadow(high);
+		}
+	}
+
+	&__gota {
+		width: v.$space-5r;
+		height: v.$space-5r;
+		@include mx.status-gota(default);
+		border-radius: 1% 50% 50% 50%;
+		transform: rotate(45deg);
+		z-index: 10;
+		&.is-low {
+			@include mx.status-gota(low);
+		}
+		&.is-medium {
+			@include mx.status-gota(medium);
+		}
+		&.is-high {
+			@include mx.status-gota(high);
+		}
+	}
+
+	&__detail {
+		font-size: v.$font-size-md;
+		@include mx.flex($gap: 0rem);
+		padding: v.$space-inline-1r-2r;
+		border-radius: v.$space-1r;
+		background-color: v.$bg-soft-green;
+	}
+
+	&__percent {
+		font-size: 1.85em;
+	}
+
+	&__btn {
+		width: v.$space-9r;
+		height: v.$space-9r;
+		border-radius: 50%;
+		background-color: v.$bg-btn;
+		overflow: hidden;
+		position: relative;
+
+		&:hover .parcela__btn-cover {
+			transform: translateY(0%);
+			border-radius: 0%;
+		}
+
+		&:hover .parcela__btn-label-1 {
+			transform: translateY(-100%);
+		}
+
+		&:hover .parcela__btn-label-2 {
+			transform: translateY(-100%);
+		}
+	}
+
+	&__btn-cover {
+		background-color: v.$bg-btn-dark-light;
+		width: 100%;
+		height: 100%;
+		border-radius: 70%;
+		position: absolute;
+		z-index: 0;
+		transform: translateY(100%);
+		left: 0;
+		bottom: 0;
+		transition: transform 0.25s ease-in, height 0.25s ease-in-out,
+			border-radius 0.25s ease-in-out, width 0.25s ease-in-out;
+		&--active {
+			transform: translate(0%);
+		}
+	}
+
+	&__btn-label {
+		position: relative;
+		padding-block: v.$space-0-25r;
+		display: block;
+		overflow: hidden;
+		z-index: 10;
+		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+		&-1 {
+			&--active {
+				transform: translateY(-100%);
+			}
+		}
+		&-2 {
+			position: absolute;
+			color: v.$white;
+			width: 100%;
+			&--active {
+				transform: translateY(-100%);
+			}
+		}
+	}
+}
