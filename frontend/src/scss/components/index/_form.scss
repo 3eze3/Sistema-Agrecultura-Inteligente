@@ -1,0 +1,89 @@
+@use '../../abstract/variables' as v;
+@use '../../abstract/mixins' as mx;
+.form {
+	width: 100%;
+	@include mx.flex(
+		$align: flex-start,
+		$justify: space-between,
+		$gap: v.$space-gap-1r
+	);
+	&__group {
+		outline: solid 1px v.$white;
+		width: 100%;
+		position: relative;
+		min-height: v.$layer-3r;
+		border-radius: v.$bdr-0-5r;
+	}
+
+	&__label {
+		top: v.$space-0-75r;
+		left: v.$space-1r;
+		position: absolute;
+		transition: transform 0.15s ease-in-out, font-weight 0.15s ease;
+		&--up-label {
+			transform: scale(0.7) translate(-1.12rem, -1.4rem);
+			font-weight: bold;
+		}
+	}
+
+	&__input {
+		padding: v.$space-inline-1-75r-1r;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+
+	&__btn {
+		width: 100%;
+		border-radius: v.$space-1r;
+		margin-top: v.$space-1r;
+		padding-block: v.$space-0-5r;
+		background-color: v.$bg-btn;
+		overflow: hidden;
+		position: relative;
+
+		&:hover .form__btn-cover {
+			transform: translateY(0%);
+			width: 100%;
+			height: 100%;
+			border-radius: 0%;
+		}
+
+		&:hover .form__btn-label-1 {
+			transform: translateY(-100%);
+		}
+
+		&:hover .form__btn-label-2 {
+			transform: translateY(-100%);
+		}
+	}
+
+	&__btn-cover {
+		background-color: v.$bg-btn-dark;
+		width: 100%;
+		height: 100%;
+		border-radius: 70%;
+		position: absolute;
+		z-index: 0;
+		transform: translateY(100%);
+		left: 0;
+		bottom: 0;
+		transition: transform 0.25s ease-in, height 0.25s ease-in-out,
+			border-radius 0.25s ease-in-out, width 0.25s ease-in-out;
+	}
+
+	&__btn-label {
+		position: relative;
+		padding-block: v.$space-0-25r;
+		display: block;
+		overflow: hidden;
+		z-index: 10;
+		transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+		&-2 {
+			position: absolute;
+			color: v.$white;
+			width: 100%;
+		}
+	}
+}
