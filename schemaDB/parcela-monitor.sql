@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS lecturas (
+  id SERIAL PRIMARY KEY,
+  timestamp TIMESTAMP NOT NULL,
+  porcentaje INTEGER NOT NULL,
+  status VARCHAR(10) NOT NULL
+);
+
+SELECT * FROM lecturas;
+
+TRUNCATE TABLE lecturas RESTART IDENTITY;
