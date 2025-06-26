@@ -1,6 +1,6 @@
 import { pool } from '../config/db.mjs'
 /**
- * Guarda una lectura en PostgreSQL.
+ * Guarda una lectura en PostgreSQL
  * @param {{  porcentaje: number, timestap: Date, status: string }} lectura
  */
 
