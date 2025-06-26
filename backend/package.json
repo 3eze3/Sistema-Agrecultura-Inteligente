@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@serialport/parser-readline": "^13.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "5.1.0",
+    "pg": "^8.16.2",
+    "serialport": "^10.5.0",
+    "ws": "^8.18.2"
+  }
+}
