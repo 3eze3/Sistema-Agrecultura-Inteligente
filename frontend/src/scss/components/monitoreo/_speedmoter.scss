@@ -1,0 +1,30 @@
+@use '../../abstract/variables' as v;
+@use '../../abstract/mixins' as mx;
+.speedmeter {
+	width: v.$layer-18r;
+	height: v.$layer-18r;
+	padding: v.$space-3r;
+	border-radius: 100%;
+	position: relative;
+	background: v.$bg-radia-conic-stats;
+	&__needle {
+		width: v.$layer-11-9r;
+		height: v.$layer-11-9r;
+		padding: v.$space-3r;
+		position: absolute;
+		top: calc(50% - 5.95rem);
+		left: calc(50% - 5.95rem);
+		border-radius: 100%;
+		background: v.$bg-radial-conic-light;
+		transition: rotate 0.8s ease-in-out;
+		@include mx.flex($direction: row);
+		rotate: calc(cos((0) * 180deg / 100) * -90deg);
+	}
+
+	&__percent {
+		transition: rotate 0.8s ease-in-out;
+		color: v.$soft-gray;
+		font-family: v.$poppins-bd;
+		rotate: calc(cos((0) * 180deg / 100) * 90deg);
+	}
+}
