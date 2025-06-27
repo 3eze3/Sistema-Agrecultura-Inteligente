@@ -53,6 +53,8 @@ import { changeState } from '../animations/change-state.mjs'
 import { resetStatus } from '../dom-interaction/reset-status.mjs'
 import { updateStatus } from '../dom-interaction/update-status.mjs'
 import { updateTable } from '../dom-interaction/update-table.mjs'
+import { updateSpeedmeter } from '../dom-interaction/update-speedmeter.mjs'
+import { updateBarAvarage } from '../dom-interaction/update-bar-avarage.mjs'
 
 export function startMonitor() {
 	const $btnStart = document.getElementById('start-monitoring-parcela')
@@ -68,8 +70,11 @@ export function startMonitor() {
 
 		socket.onmessage = (event) => {
 			const lectura = JSON.parse(event.data)
+			console.log(lectura)
 			updateStatus(lectura.porcentaje)
 			updateTable(lectura)
+			updateSpeedmeter(lectura.porcentaje)
+			updateBarAvarage(lectura.porcentaje)
 		}
 
 		socket.onclose = () => console.log('WebSocket desconectado')
