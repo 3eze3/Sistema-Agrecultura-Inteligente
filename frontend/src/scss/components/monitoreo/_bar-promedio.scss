@@ -1,0 +1,57 @@
+@use '../../abstract/variables' as v;
+@use '../../abstract/mixins' as mx;
+.barAvarage {
+	width: v.$layer-20r;
+	height: v.$layer-18-75r;
+	position: relative;
+	border-left: solid red 5px;
+	border-bottom: solid red 5px;
+	border-radius: v.$space-0-1r;
+	@include mx.flex($direction: row, $gap: 0);
+	&__umbral {
+		width: 100%;
+		position: absolute;
+		top: v.$layer-13r;
+		left: 0rem;
+		z-index: 2;
+		@include mx.flex($direction: row, $gap: 0, $justify: space-between);
+		font-weight: v.$poppins-bd;
+		color: v.$soft-gray;
+		&::after,
+		&::before {
+			content: '';
+			display: block;
+			background-color: v.$bg-cream;
+			width: 33%;
+			height: 1px;
+		}
+	}
+
+	&__container {
+		bottom: 0;
+		position: absolute;
+		width: v.$layer-14r;
+		height: v.$layer-18-75r;
+		@include mx.flex($direction: row, $gap: 0, $align: flex-end);
+	}
+
+	&__bar {
+		background-image: v.$bg-linear-stats;
+		background-size: 100% 500%;
+		width: 100%;
+		height: 0%;
+		border-top-left-radius: v.$space-1r;
+		border-top-right-radius: v.$space-1r;
+		transition: height 0.3s ease-in-out;
+	}
+
+	&__percent {
+		position: absolute;
+		transition: bottom 0.3s ease-in-out;
+		bottom: v.$space-0-5r;
+		right: -(v.$space-2r);
+		rotate: 90deg;
+		font-family: v.$poppins-bd;
+		color: v.$soft-gray;
+	}
+}
