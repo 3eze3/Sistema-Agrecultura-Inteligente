@@ -27,10 +27,17 @@
 		height: v.$layer-20-938r;
 		@include mx.flex($justify: flex-start, $gap: v.$space-1r);
 		&--table {
+			padding-inline: 2rem;
 			overflow-y: scroll;
 			&::-webkit-scrollbar {
 				display: none;
 			}
+		}
+		&--speedmeter {
+			background-image: v.$bg-linear-red-gren-soft;
+			background-size: 500%;
+			background-position-x: 0%;
+			transition: background-position 0.6s linear;
 		}
 	}
 
