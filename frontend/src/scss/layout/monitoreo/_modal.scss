@@ -9,6 +9,7 @@
 	z-index: 20;
 	inset: 0;
 	padding-inline: v.$space-2r;
+	overflow: hidden;
 
 	&__graphics {
 		@include mx.grid(2);
@@ -25,19 +26,20 @@
 		border-radius: v.$space-1r;
 		width: 100%;
 		height: v.$layer-20-938r;
+		background-image: v.$bg-linear-red-gren-soft;
+		background-size: 500%;
+		background-position-x: 0%;
+		transition: background-position 0.6s linear;
 		@include mx.flex($justify: flex-start, $gap: v.$space-1r);
 		&--table {
 			padding-inline: 2rem;
 			overflow-y: scroll;
+			background-image: none;
+			background-size: 0;
+			transition: none;
 			&::-webkit-scrollbar {
 				display: none;
 			}
-		}
-		&--speedmeter {
-			background-image: v.$bg-linear-red-gren-soft;
-			background-size: 500%;
-			background-position-x: 0%;
-			transition: background-position 0.6s linear;
 		}
 	}
 
