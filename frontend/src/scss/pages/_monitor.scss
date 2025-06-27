@@ -1,4 +1,6 @@
-@use '../layout/monitoreo/parcela';
-@use '../layout/monitoreo/modal';
+@use '../components/monitoreo/bar-promedio';
+@use '../components/monitoreo/speedmoter';
 @use '../components/monitoreo/plant';
 @use '../components/monitoreo/tabla';
+@use '../layout/monitoreo/parcela';
+@use '../layout/monitoreo/modal';
