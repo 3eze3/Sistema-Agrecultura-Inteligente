@@ -4,8 +4,8 @@ export function updateTable(lectura: {
 	porcentaje: any
 	status: any
 }) {
-	const $tbody = document.querySelector('.table__body')
-	if (!$tbody) return
+	const $tbody = document.querySelector('.table__body') as HTMLTableElement
+
 	const date = new Date(lectura.timestamp)
 	const formattedTime = date.toLocaleTimeString([], {
 		hour: '2-digit',
@@ -13,10 +13,21 @@ export function updateTable(lectura: {
 	})
 
 	const emptyRow = $tbody.querySelector('.table__row td[colspan="4"]')
+
 	if (emptyRow) {
 		$tbody.innerHTML = ''
 	}
 
+	const $newRow = createRow(lectura, formattedTime)
+	$tbody.appendChild($newRow)
+}
+
+
+
+function createRow(
+	lectura: { id: any; porcentaje: any; status: any },
+	formattedTime: string
+): HTMLElement {
 	const $newRow = document.createElement('tr')
 	$newRow.classList.add('table__row')
 
@@ -28,10 +39,5 @@ export function updateTable(lectura: {
 		<td data-cell="STATE" class="table__cell">${lectura.status}</td>
 		<td data-cell="DATE" class="table__cell">${formattedTime}</td>
 	`
-
-	// if ($tbody.children.length >= 10) {
-	// if ($tbody.firstChild) $tbody.removeChild($tbody.firstChild)
-	// }
-
-	$tbody.appendChild($newRow)
+	return $newRow
 }
