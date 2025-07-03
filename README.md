@@ -157,7 +157,24 @@ Respuesta:
 
 ## 📸 Capturas y Demo
 
-> Para ver un demo en vídeo, visita: [YouTube](TU_LINK_YOUTUBE)
+<div align="center">
+  <img src="./images/log-in.png" width="500" alt="Pantalla de inicio de sesión"/>
+  <p><em>Pantalla de inicio de sesión</em></p>
+  
+  <img src="./images/monitor.png" width="500" alt="Panel de monitoreo del sistema"/>
+  <p><em>Panel de monitoreo del sistema</em></p>
+
+  <img src="./images/plot-web.png" width="500" alt="Gráficos de datos en tiempo real"/>
+  <p><em>Gráficos de datos en tiempo real</em></p>
+
+  <img src="./images/graficos.png" width="500" alt="Análisis visual con múltiples métricas"/>
+  <p><em>Análisis visual con múltiples métricas</em></p>
+</div>
+
+## 🎥 Demo en Video
+
+Puedes ver un video demostrativo en mi canal de YouTube:  
+👉 [@eze-root](https://www.youtube.com/@eze-root/videos)
 
 ---
 
@@ -188,10 +205,10 @@ Este proyecto está bajo la licencia **MIT**. Ver `LICENSE` para más detalles.
 
 ## 👤 Autor
 
-**Tu Nombre** – [tuWebPersonal.com](https://tuWebPersonal.com)
+**Ezequiel Cordova** – [tuWebPersonal.com](https://tuWebPersonal.com)
 
-- GitHub: [github.com/tuUsuario](https://github.com/tuUsuario)
-- LinkedIn: [linkedin.com/in/tuPerfil](https://linkedin.com/in/tuPerfil)
+- GitHub: [github.com/tuUsuario](https://github.com/3eze3)
+- LinkedIn: [linkedin.com/in/tuPerfil](https://www.linkedin.com/in/ezequiel-cordova-131ba834a/)
 
 ---
 
