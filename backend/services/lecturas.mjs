@@ -19,3 +19,9 @@ export async function getLecturasDB() {
 	const { rows } = await pool.query('SELECT * FROM lecturas ORDER BY id ASC')
 	return rows
 }
+
+export async function getLecturasByFechas(start, end) {
+	const queryStream = ` SELECT porcentaje, timestamp FROM lecturas WHERE timestamp >= '${start}' AND timestamp <= '${end}' ORDER BY timestamp ASC;`
+	const { rows } = await pool.query(queryStream)
+	return rows
+}
