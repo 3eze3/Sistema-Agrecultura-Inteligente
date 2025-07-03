@@ -1,127 +1,198 @@
-# Sistema de Agricultura Inteligente
+# 🌱 Sistema de Agricultura Inteligente
 
-## Descripción
+**Proyecto IoT full‑stack para monitoreo y análisis de la humedad del suelo**, que integra hardware (Arduino Nano), backend en Node.js, persistencia en PostgreSQL y frontend con visualizaciones interactivas.
 
-Sistema IoT para monitoreo de humedad de suelo que conecta un Arduino Nano a un backend en Node.js, persiste datos en PostgreSQL y presenta lecturas en tiempo real y gráficas históricas en el frontend.
+---
 
-- Captura de humedad de suelo con sensor capacitivo.
-- Alertas visuales locales (LEDs rojo/verde) según nivel de humedad.
-- Transmisión de datos vía puerto serie a Node.js.
-- Almacenamiento de lecturas en PostgreSQL con timestamp automático.
-- API REST para consultas históricas y WebSocket para datos en tiempo real.
-- Frontend interactivo con HTML5, SCSS, JavaScript (ESModules) y Chart.js.
+## 🚀 Tabla de Contenidos
 
-## Objetivos Personales
+1. [Descripción](#descripción)
+2. [Características Principales](#características-principales)
+3. [Tecnologías](#tecnologías)
+4. [Arquitectura y Estructura](#arquitectura-y-estructura)
+5. [Instalación y Configuración](#instalación-y-configuración)
+6. [Uso y Flujo de Trabajo](#uso-y-flujo-de-trabajo)
+7. [API REST](#api-rest)
+8. [WebSocket (Datos en Tiempo Real)](#websocket-datos-en-tiempo-real)
+9. [Capturas y Demo](#capturas-y-demo)
+10. [Pruebas y Validaciones](#pruebas-y-validaciones)
+11. [Mejoras Futuras](#mejoras-futuras)
+12. [Contribuciones](#contribuciones)
+13. [Licencia](#licencia)
+14. [Autor](#autor)
 
-- [ ] Dominar la lectura de sensores analógicos con Arduino y conversión a porcentajes.
-- [ ] Implementar comunicación bidireccional: hardware → software (Serial) y software → frontend (WebSocket).
-- [ ] Configurar y optimizar PostgreSQL para almacenamiento de series temporales.
-- [ ] Diseñar y exponer una API RESTful escalable con Express.
-- [ ] Crear visualizaciones dinámicas e interactivas con Chart.js.
-- [ ] Desplegar y documentar un proyecto completo en GitHub para portafolio.
+---
 
-## Tecnologías 🔧
+## 📖 Descripción
 
-### Hardware
-- **Arduino Nano** con sensor de humedad capacitivo y LEDs de estado.
-- **Sensor de humedad** analógico (A0).
-- **LEDs** (pines D2 y D3) para alertas locales.
+Se trata de un sistema de **monitorización inteligente de la humedad del suelo** que permite:
 
-### Backend
-- **Node.js** (v20+).
-- **Express** para rutas REST.
-- **serialport** para lectura de puerto serie.
-- **pg** para pool de conexiones a PostgreSQL.
-- **ws** para servidor WebSocket.
-- **dotenv** para cargar variables de entorno.
+- Capturar lecturas de un **sensor capacitivo** conectado a un Arduino Nano.
+- Transmitir datos en tiempo real al navegador mediante **WebSocket**.
+- Almacenar históricos en **PostgreSQL** para consultas posteriores.
+- Exponer una **API REST** para filtrar lecturas por rangos de fecha.
+- Visualizar datos en tiempo real y gráfica histórica con **Highcharts** (o Chart.js).
 
-### Base de datos
-- **PostgreSQL** (v13+).
-- Tabla `lecturas` con columnas: `id`, `timestamp`, `porcentaje`, `status`.
+Este proyecto demuestra un flujo **end‑to‑end** completo: hardware → backend → base de datos → frontend.
 
-### Frontend
-- **HTML5**
-- **SCSS** para estilos modulares y variables.
-- **JavaScript ESModules**
-- **Chart.js** para gráficas de línea en tiempo real e históricas.
+---
 
-## Estructura del proyecto
+## ✨ Características Principales
+
+- 📡 **Telemetría en Tiempo Real**: lecturas cada 7 segundos con WebSocket.
+- 🗄️ **Persistencia Histórica**: almacenamiento en PostgreSQL con timestamp preciso.
+- 📊 **Visualización Dinámica**: gráficas de líneas interactivas con formato `HH:mm:ss`.
+- ⚙️ **API RESTful**: filtros por rango de fechas (`desde` / `hasta`).
+- 💡 **Alertas Locales**: LEDs indicador rojo/verde según nivel de humedad.
+
+---
+
+## 🛠️ Tecnologías
+
+| Capa              | Tecnologías                                                                  |
+| ----------------- | ---------------------------------------------------------------------------- |
+| **Hardware**      | Arduino Nano, sensor capacitivo (A0), LEDs (D2, D3)                          |
+| **Backend**       | Node.js, Express, ws (WebSocket), serialport, pg (PostgreSQL), dotenv        |
+| **Base de Datos** | PostgreSQL v13+, tabla `lecturas` (id, timestamp, porcentaje, status)        |
+| **Frontend**      | HTML5, SCSS, JavaScript ESModules, Highcharts (o Chart.js), WebSocket client |
+
+---
+
+## 🏗️ Arquitectura y Estructura del Repositorio
 
 ```bash
-/backend          # Código del servidor (API, WebSockets, Serial)
-  ├─ db/          # pool de PostgreSQL y diagnósticos
-  ├─ routers/     # Rutas GET/POST para lecturas
-  ├─ services/    # Lógica de negocio y acceso a BD
-  └─ serial/      # Módulo de lectura serie y emisión WebSocket
-/frontend         # Código estático: HTML, CSS, JS
-  ├─ css/         # Archivos compilados de SCSS
-  └─ js/          # Módulos ES para WebSocket y Chart.js
+📦proyecto-agricultura-inteligente
+ ┣ 📂backend                # Servidor Node.js + WebSocket + serial
+ ┃ ┣ 📂config               # Conexión a PostgreSQL y variables de entorno
+ ┃ ┣ 📂routers              # Rutas REST (/lecturas, /lecturasFechas)
+ ┃ ┣ 📂services             # Lógica de negocio y acceso a DB
+ ┃ ┣ 📂serial               # Módulo de lectura serial y emisión de eventos
+ ┃ ┗ 📜server.js            # Punto de entrada, configuración de Express + WS
+ ┣ 📂frontend               # Cliente web estático
+ ┃ ┣ 📂css                  # SCSS compilado
+ ┃ ┣ 📂js                   # Módulos ES: fetch, WebSocket, gráficos
+ ┃ ┗ 📜index.html           # Dashboard y sección de gráficas
+ ┣ 📂docs                   # Diseño en Figma, diagramas, documentación extra
+ ┣ 📜.env.example           # Plantilla de variables de entorno
+ ┣ 📜README.md              # Documentación principal
+ ┗ 📜LICENSE                # Licencia MIT
 ```
 
-## Prerrequisitos
+---
 
-- Arduino IDE para cargar el sketch en la placa.
-- Node.js y npm instalados.
-- PostgreSQL corriendo localmente.
-- Variables de entorno configuradas en `.env`.
-
-## Instalación y ejecución
+## ⚙️ Instalación y Configuración
 
 1. **Clonar el repositorio**
+
    ```bash
-git clone <URL_DEL_REPOSITORIO>
-cd proyecto-agricultura-inteligente
-```
+   git clone https://github.com/tuUsuario/sistema-agricultura-inteligente.git
+   cd sistema-agricultura-inteligente
+   ```
 
-2. **Configurar variables de entorno** en `.env` en la raíz:
-   ```ini
-# Puerto serie y baudios\ nPORT_NAME=COM7
-BAUD_RATE=9600
+2. **Configurar variables**
 
-# Base de datos PostgreSQL\ nDATABASE_URL=postgres://usuario:contraseña@localhost:5432/parcelamonitor
-APP_PORT=4000
-```
+   - Copia `.env.example` a `.env` y ajusta:
+     ```ini
+     PORT=4000
+     DATABASE_URL=postgres://usuario:password@localhost:5432/tuBD
+     SERIAL_PORT=/dev/ttyUSB0    # o COM7 en Windows
+     BAUD_RATE=9600
+     ```
 
-3. **Instalar dependencias y ejecutar backend**
+3. **Instalar dependencias y ejecutar el backend**
+
    ```bash
-cd backend
-npm install
-npm run dev
+   cd backend
+   npm install
+   npm run dev              # Nodemon o similar
+   ```
+
+4. **Abrir el frontend**
+
+   - Conecta tu Arduino y abre `frontend/index.html` directamente, o bien sirve con un servidor estático:
+     ```bash
+     cd frontend
+     npx http-server .        # en el puerto por defecto
+     ```
+
+---
+
+## 🚀 Uso y Flujo de Trabajo
+
+1. **Arranca el sensor**: sube el sketch de Arduino Nano (ver `/docs/arduino.ino`).
+2. **Inicia el backend**: lectura serial → WebSocket → HTTP.
+3. **Abre el dashboard**: verás lecturas en tiempo real y puedes filtrar histórico.
+4. **Filtrar histórico**: ingresa fechas de inicio y fin, pulsa “Cargar datos” para ver la gráfica.
+
+---
+
+## 🔗 API REST
+
+- `GET /lecturas` → todas las lecturas.
+- `GET /lecturasFechas?desde=YYYY-MM-DDTHH:mm&hasta=YYYY-MM-DDTHH:mm` → lecturas en rango.
+
+**Ejemplo**:
+
+```
+GET http://localhost:4000/lecturasFechas?desde=2025-06-20T08:00&hasta=2025-06-27T08:00
 ```
 
-4. **Abrir frontend**
-   - Abrir `frontend/index.html` en el navegador (o servir con un servidor estático)
+Respuesta:
 
-## API REST (Ejemplos)
+```json
+[{
+  "porcentaje": 74,
+  "timestamp": "2025-06-27T21:37:59.713Z"
+}, …]
+```
 
-- **GET /lecturas** — Obtener todas las lecturas.
-- **GET /lecturas?desde=YYYY-MM-DD&hasta=YYYY-MM-DD** — Filtrar por rango de fechas.
-- **POST /lecturas** — Insertar lectura manual (útil para pruebas):
-  ```json
-  {
-    "raw": 512,
-    "porcentaje": 50,
-    "timestamp": "2025-06-26T12:00:00Z",
-    "status": "medium"
-  }
-  ```
+---
 
-## Uso
+## 🌐 WebSocket (Tiempo Real)
 
-- Haz clic en **Start** para iniciar el monitoreo en vivo vía WebSocket.
-- Visualiza lecturas en tiempo real en el dashboard principal.
-- Accede al historial interactivo desde la sección de gráficas y selecciona rango de fechas.
+- Conéctate a `ws://localhost:4000`.
+- Recibirás lecturas en formato JSON `{ porcentaje, timestamp, status }` cada vez que llegue un nuevo dato.
 
-## Contribuciones
+---
 
-¡Contribuciones y forks bienvenidos!
-1. Crea un fork.
-2. Crea tu rama de feature (`git checkout -b feature-nombre`).
-3. Haz commit de tus cambios (`git commit -m 'Agrega feature'`).
-4. Push a tu rama (`git push origin feature-nombre`).
-5. Abre un Pull Request.
+## 📸 Capturas y Demo
 
-## Licencia
+> Para ver un demo en vídeo, visita: [YouTube](TU_LINK_YOUTUBE)
 
-MIT © 2025 Ezequiel
+---
 
+## 🧪 Pruebas y Validaciones
+
+- **Validación de rango de fechas**: aseguramos que `desde < hasta`.
+- **Eliminación de duplicados**: usamos `removeDuplicates()` para un único punto por timestamp.
+- **Pruebas unitarias**: (añadir tests con Jest o similar para módulos críticos).
+
+---
+
+## 🤝 Contribuciones
+
+¡Contribuciones bienvenidas!
+
+1. Fork del proyecto
+2. Crea una rama `feature/mi-mejora`
+3. Commit de tus cambios
+4. Pull Request describiendo tu propuesta
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT**. Ver `LICENSE` para más detalles.
+
+---
+
+## 👤 Autor
+
+**Tu Nombre** – [tuWebPersonal.com](https://tuWebPersonal.com)
+
+- GitHub: [github.com/tuUsuario](https://github.com/tuUsuario)
+- LinkedIn: [linkedin.com/in/tuPerfil](https://linkedin.com/in/tuPerfil)
+
+---
+
+> _"La curiosidad es el motor de la innovación: nunca dejes de explorar y aprender."_
