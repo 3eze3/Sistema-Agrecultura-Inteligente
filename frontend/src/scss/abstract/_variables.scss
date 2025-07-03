@@ -48,6 +48,7 @@ $breakpoint-xl: 1440px;
 // --------------------------- Font Size -----------------------------
 $font-size-h1: 2.5em;
 $font-size-h2: 2em;
+$font-size-sm: 0.8em;
 $font-size-body: 1em;
 $font-size-h3: 1.3em;
 $font-size-md: 1.5em;
@@ -56,33 +57,54 @@ $font-letter-space: 0.17em;
 // --------------------------- Escala de Containers ---------------------------
 $layer-3r: 3rem;
 $layer-11r: 11rem;
+$layer-11-9r: 11.9rem;
 $layer-20r: 20rem;
 $layer-25r: 25rem;
 $layer-42r: 42rem;
 $layer-60r: 60rem;
+$layer-12r: 12rem;
+$layer-13r: 13rem;
 $layer-13-875r: 13.875rem;
-$layer-30-125r: 30.125rem;
+$layer-14r: 14rem;
+$layer-15r: 15rem;
+$layer-16r: 16rem;
+$layer-18r: 18rem;
 $layer-18-125r: 18.125rem;
+$layer-18-75r: 18.75rem;
+$layer-28r: 28rem;
+$layer-30-125r: 30.125rem;
 $layer-20-938r: 20.938rem;
+
 // --------------------------- Escala de espaciamientos ---------------------------
+$space-0-1r: 0.1rem;
 $space-0-25r: 0.25rem;
 $space-0-5r: 0.5rem;
 $space-0-75r: 0.75rem;
+$space-0-9r: 0.9rem;
 $space-1r: 1rem;
+$space-1-5r: 1.5rem;
 $space-1-2r: 1.2rem;
+$space-1-3r: 1.3rem;
 $space-2r: 2rem;
-$space-2-5r: 2rem;
+$space-2-393r: 2.393rem;
+$space-2-5r: 2.5rem;
 $space-3r: 3rem;
+$space-3-5r: 3.5rem;
 $space-5r: 5rem;
+$space-6r: 6rem;
 $space-7r: 7rem;
+$space-7-5r: 7.5rem;
 $space-9r: 9rem;
+
+$space-inline-0-5r-1r: 0.5rem 1rem;
+$space-inline-0-5r-1-8r: 0.5rem 1.8rem;
 $space-inline-1r-3r: 1rem 3.5rem;
 $space-inline-1r-2r: 1rem 2rem;
+$space-inline-1-5r-1r: 1.5rem 1rem;
 $space-inline-1-75r-1r: 1.75rem 1rem;
-$space-inline-0-5r-1-8r: 0.5rem 1.8rem;
 
 // --------------------------- Colors ---------------------------------
-
+$soft-dark: #ffffff44;
 // Bg-Containers
 $bg-body: #000600;
 $bg-cards: #282820;
@@ -90,30 +112,69 @@ $bg-cards-soft: #28282042;
 $bg-dark-soft: hsl(0 0% 0% / 1.2);
 $bg-dark: #171717;
 $bg-dark-light: hsl(0 0% 0% / 0.3);
-
 $bg-green-transparent: rgba(1, 32, 24, 0.059);
+$bg-soft-green: #434b3c;
+$bg-soft-marron: #4a4a4a43;
+$bg-btn: #7d8163;
+$bg-btn-dark: #3c3e30;
+$bg-btn-dark-light: #5d604b;
+$bg-cream: rgb(208, 171, 171);
+$bg-marron-soft: #b3bd58ad;
+$bg-yellow-soft: #545e4c;
 $bg-linear-dark-green-light: linear-gradient(top, #000600, #5b5b4e);
 $bg-linear-dark-green: linear-gradient(to top, #000600, #282820);
+$bg-linear-red-gren-soft: linear-gradient(
+	to right,
+	#f4bcbc5b 0% 10%,
+	#be5959 20% 30%,
+	#455d04 40% 60%,
+	#a8db1f 70% 90%
+);
 $bg-linear-green-gold: linear-gradient(
 	to bottom,
 	#556a5783,
 	transparent,
 	rgba(1, 66, 36, 0.665)
 );
-$bg-soft-green: #434b3c;
-$bg-soft-marron: #4a4a4a43;
-// Bg-Buttons
-$bg-btn: #7d8163;
-$bg-btn-dark: #3c3e30;
-$bg-btn-dark-light: #5d604b;
-// Titles, form, btns
+$bg-linear-stats: linear-gradient(
+	to bottom,
+	rgba(255, 0, 0, 0.604) 0% 31%,
+	rgba(155, 219, 45, 0.582) 50%,
+	rgba(187, 255, 187, 0.535) 90%
+);
+//
+$bg-radial-conic-light: conic-gradient(
+			from 175deg at 50% 55%,
+			#989871 2deg,
+			#9fa870 3deg 7deg,
+			#989871 8deg 10deg,
+			#0000 0
+		)
+		0 -122px no-repeat,
+	radial-gradient(#9fa870 0 50%, #989871 51%) content-box;
+$bg-radia-conic-stats: radial-gradient(#13150d 0 0) content-box,
+	conic-gradient(
+		from -90deg,
+		#ff0000 36deg,
+		#ff0000 38deg,
+		#004a00 0 108deg,
+		#008000 0 144deg,
+		#00ff00 0 180deg,
+		transparent 0
+	);
 $soft-gray: #ececd0;
 $white: #fff;
+//
 $sh-soft-green: 0 0 10px rgba(33, 150, 83, 0.2), 5px 0 30px rgba(0, 0, 0, 0.2),
 	-5px 0 30px rgba(76, 175, 80, 0.2), 5px 0 80px rgba(0, 0, 0, 0.2),
 	-5px 0 80px rgba(33, 150, 83, 0.2), 0 0 10px rgba(0, 0, 0, 0.2),
 	-3px 0 30px rgba(76, 175, 80, 0.2), 3px 0 30px rgba(0, 0, 0, 0.2);
 
+$sh-dark: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.768627451),
+	-0.1rem -0.1rem 0.2rem rgba(0, 0, 0, 0.378) inset;
+
+$sh-dark-marron: 0.2rem 0.2rem 0.4rem #393c1dd1 inset,
+	-0.1rem -0.1rem 0.2rem #6f753ea9 inset;
 // ------------------------------------ Head -------------------------------------
 $status-shadows: (
 	low: (
