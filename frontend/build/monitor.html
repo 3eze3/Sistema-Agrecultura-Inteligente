@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://code.highcharts.com/highcharts.js"></script>
 		<link rel="stylesheet" href="./css/monitor.css" />
 		<script type="module" src="./js/monitor.mjs"></script>
 		<title>Sistema Agricultura Inteligente</title>
@@ -70,19 +71,90 @@
 						<tbody class="table__body"></tbody>
 					</table>
 				</article>
-				<article class="modal__graphic">
+				<article class="modal__graphic modal__graphic--speedmeter">
 					<h3 class="modal__subtitle">Estado Actual De Humedad</h3>
-					<canvas id=""></canvas>
+					<div class="speedmeter">
+						<div class="speedmeter__needle">
+							<span class="speedmeter__percent">0%</span>
+						</div>
+					</div>
 				</article>
 
 				<article class="modal__graphic">
 					<h3 class="modal__subtitle">Rendimiento Hidrico</h3>
-					<canvas id=""></canvas>
+					<div class="barAvarage">
+						<span class="barAvarage__umbral">Critico: 30%</span>
+						<div class="barAvarage__container">
+							<div class="barAvarage__bar"></div>
+							<span class="barAvarage__percent">0%</span>
+						</div>
+					</div>
 				</article>
 
 				<article class="modal__graphic">
-					<h3 class="modal__subtitle">Historial De Humedad</h3>
-					<canvas id=""></canvas>
+					<h3 class="modal__subtitle sr-only">Historial De Humedad</h3>
+					<div class="historical">
+						<header class="historical__header">
+							<nav class="historical__nav">
+								<div class="historical__cover"></div>
+								<div class="historical__wrapper">
+									<input
+										type="radio"
+										id="today"
+										name="actions"
+										class="historical__radio" />
+									<label class="historical__filter" for="today">Today</label>
+								</div>
+								<div class="historical__wrapper">
+									<input
+										type="radio"
+										id="days-7"
+										name="actions"
+										class="historical__radio" />
+									<label class="historical__filter" for="days-7">7 days</label>
+								</div>
+								<div class="historical__wrapper">
+									<input
+										type="radio"
+										id="custom"
+										name="actions"
+										class="historical__radio" />
+									<label class="historical__filter" for="custom">Custom</label>
+								</div>
+							</nav>
+						</header>
+						<div class="historical__container">
+							<div class="historical__graphic" id="container"></div>
+						</div>
+						<form action="" class="historical__form">
+							<div class="historical__group">
+								<label for="date-begin" class="historical__label">
+									Date and time start
+								</label>
+								<input id="date-begin" type="text" class="historical__input" />
+							</div>
+							<div class="historical__group">
+								<label for="date-end" class="historical__label">
+									Date and time end
+								</label>
+								<input id="date-end" type="text" class="historical__input" />
+							</div>
+
+							<button aria-label="Apply" class="historical__btn" id="appy">
+								<span aria-hidden="true" class="historical__btn-cover"></span>
+								<span class="historical__btn-label">
+									<span class="historical__btn-label historical__btn-label-1">
+										Apply
+									</span>
+									<span
+										class="historical__btn-label historical__btn-label-2"
+										aria-hidden="true">
+										Apply
+									</span>
+								</span>
+							</button>
+						</form>
+					</div>
 				</article>
 			</section>
 		</dialog>
