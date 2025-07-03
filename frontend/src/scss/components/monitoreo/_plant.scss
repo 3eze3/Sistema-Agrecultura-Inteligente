@@ -1,6 +1,5 @@
 @use '../../abstract/mixins' as mx;
 @use '../../abstract/variables' as v;
-// Pagina como de lluvia con gotas en la pagina
 .parcela {
 	cursor: pointer;
 	width: v.$layer-42r;
@@ -29,13 +28,13 @@
 		position: relative;
 		transition: box-shadow 2s ease;
 		@include mx.flex($direction: row, $gap: 0rem);
-		&.is-low {
+		&.Low {
 			@include mx.status-shadow(low);
 		}
-		&.is-medium {
+		&.Medium {
 			@include mx.status-shadow(medium);
 		}
-		&.is-high {
+		&.High {
 			@include mx.status-shadow(high);
 		}
 	}
@@ -47,13 +46,13 @@
 		border-radius: 1% 50% 50% 50%;
 		transform: rotate(45deg);
 		z-index: 10;
-		&.is-low {
+		&.Low {
 			@include mx.status-gota(low);
 		}
-		&.is-medium {
+		&.Medium {
 			@include mx.status-gota(medium);
 		}
-		&.is-high {
+		&.High {
 			@include mx.status-gota(high);
 		}
 	}
