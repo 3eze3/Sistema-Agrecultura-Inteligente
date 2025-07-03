@@ -1,16 +1,16 @@
-import { updateBgs } from '../animations/update-bg.mjs'
-
+import { updateBgs } from '../animations/update-bg-cards.mjs'
 const statsHumidity: number[] = []
+
 export function updateBarAvarage(humidityPercent: number) {
 	statsHumidity.push(humidityPercent)
 
 	if (statsHumidity.length > 12) {
 		statsHumidity.shift()
 	}
+
 	if (statsHumidity.length === 12) {
-		let averageHumidity = (
+		let averageHumidity =
 			statsHumidity.reduce((a, b) => a + b) / statsHumidity.length
-		)
 		updateBar(averageHumidity)
 	}
 }
