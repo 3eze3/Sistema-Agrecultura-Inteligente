@@ -1,55 +1,4 @@
-// import { changeState } from '../animations/change-state.mjs'
-
-// export function startMonitor() {
-// const $btnStart = document.getElementById(
-// 'start-monitoring-parcela'
-// ) as HTMLButtonElement
-
-// $btnStart.addEventListener('click', (e) => {
-// e.stopPropagation()
-// changeState()
-// })
-// }
-// import { changeState } from '../animations/change-state.mjs'
-// import { updateStatus } from '../dom-interaction/update-status.mjs'
-// import { updateTable } from '../dom-interaction/update-table.mjs'
-
-// export function startMonitor() {
-// 	const $btnStart = document.getElementById('start-monitoring-parcela')
-// 	// const $porcentaje = document.querySelector('.parcela__percent')
-// 	// const $estado = document.querySelector('.parcela__type')
-// 	// const $cabeza = document.querySelector('.parcela__head')
-// 	// const $gota = document.querySelector('.parcela__gota')
-
-// 	$btnStart?.addEventListener('click', (e) => {
-// 		e.stopPropagation()
-// 		changeState()
-
-// 		const socket = new WebSocket('ws://localhost:4000')
-
-// 		socket.addEventListener('open', () => {
-// 			console.log('WebSocket activo')
-// 		})
-
-// 		socket.addEventListener('message', (event) => {
-// 			const lectura = JSON.parse(event.data)
-// 			const porcentaje = lectura.porcentaje
-// 			updateStatus(porcentaje)
-// 			updateTable(lectura)
-
-// 			// $porcentaje?.textContent = `${porcentaje}%`
-// 			// $estado?.textContent = nivel.charAt(0).toUpperCase() + nivel.slice(1)
-
-// 			// $cabeza?.classList.remove('low', 'medium', 'high')
-// 			// $gota?.classList.remove('low', 'medium', 'high')
-
-// 			// $cabeza?.classList.add(nivel)
-// 			// $gota?.classList.add(nivel)
-// 		})
-// 	})
-// }
-
-import { changeState } from '../animations/change-state.mjs'
+import { changeState } from '../animations/change-state-btns.mjs'
 import { resetStatus } from '../dom-interaction/reset-status.mjs'
 import { updateStatus } from '../dom-interaction/update-status.mjs'
 import { updateTable } from '../dom-interaction/update-table.mjs'
@@ -65,12 +14,10 @@ export function startMonitor() {
 
 	const connectWebSocket = () => {
 		socket = new WebSocket('ws://localhost:4000')
-
 		socket.onopen = () => console.log('WebSocket conectado')
 
 		socket.onmessage = (event) => {
 			const lectura = JSON.parse(event.data)
-			console.log(lectura)
 			updateStatus(lectura.porcentaje)
 			updateTable(lectura)
 			updateSpeedmeter(lectura.porcentaje)
