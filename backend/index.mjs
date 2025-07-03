@@ -1,10 +1,10 @@
 import express from 'express'
 import http from 'http'
+import cors from 'cors'
 import { WebSocketServer } from 'ws'
 import { initSerial } from './serial/serial.mjs'
 import getLecturaRouter from './routers/get-lecturas.mjs'
-import postLecturasRouter from './routers/post-lecturas.mjs'
-import cors from 'cors'
+import getLecturasFilterByFechaRouter from './routers/get-lecturas-by-fecha.mjs'
 
 const app = express()
 app.disable('x-powered-by')
@@ -15,29 +15,24 @@ const server = http.createServer(app)
 const wss = new WebSocketServer({ server })
 export const clients = new Set()
 
-// 
 wss.on('connection', (ws) => {
-	console.log('Cliente WebSocket conectado')
+	console.log('\n[*] Cliente WebSocket conectado!\n')
 	clients.add(ws)
 
 	ws.on('close', () => {
-		console.log('Cliente WebSocket desconectado')
-		clients.delete(ws)
+		console.log('\n[+] Cliente WebSocket desconectado\n')
+		clients.delete()
 	})
 })
 
 initSerial(clients)
-// Rutas
 app.use('/lecturas', getLecturaRouter)
-app.use('/lecturas', postLecturasRouter)
+app.use('/lecturasFechas', getLecturasFilterByFechaRouter)
 
-//
 app.use((req, res) => {
-	res.status(404).send('<h1>No existe la ruta!</h1>')
+	res.status(404).send('<h1>No existe la ruta tontin!</h1>')
 })
-//
 const PORT = process.env.PORT
-// app.listen(PORT, () => console.log(`Api corriendo en http://localhost:${PORT}`))
 server.listen(PORT, () =>
 	console.log(`Api corriendo en http://localhost:${PORT}`)
 )
