@@ -1,26 +1,30 @@
 export function updateStatus(humidityPercent) {
-    const $head = document.querySelector('.parcela__head');
-    const $gota = document.querySelector('.parcela__gota');
-    const $parcelaType = document.querySelector('.parcela__type');
-    const $percent = document.querySelector('.parcela__percent');
     let statusClass;
     if (humidityPercent < 30) {
-        statusClass = 'is-low';
-        $percent.textContent = `${humidityPercent.toString()}%`;
-        $parcelaType.textContent = `Low`;
+        statusClass = 'Low';
+        updateLabelsAndParcela(statusClass, humidityPercent);
     }
     else if (humidityPercent < 50) {
-        statusClass = 'is-medium';
-        $percent.textContent = `${humidityPercent.toString()}%`;
-        $parcelaType.textContent = `Medium`;
+        statusClass = 'Medium';
+        updateLabelsAndParcela(statusClass, humidityPercent);
     }
     else {
-        statusClass = 'is-high';
-        $parcelaType.textContent = `High`;
-        $percent.textContent = `${humidityPercent.toString()}%`;
+        statusClass = 'High';
+        updateLabelsAndParcela(statusClass, humidityPercent);
     }
-    $head?.classList.remove('is-low', 'is-medium', 'is-high');
-    $gota?.classList.remove('is-low', 'is-medium', 'is-high');
-    $head?.classList.add(statusClass);
-    $gota?.classList.add(statusClass);
+    resetStatusClass(statusClass);
+}
+function resetStatusClass(status) {
+    const $head = document.querySelector('.parcela__head');
+    const $gota = document.querySelector('.parcela__gota');
+    $head?.classList.remove('low', 'medium', 'high');
+    $gota?.classList.remove('low', 'medium', 'high');
+    $head?.classList.add(status);
+    $gota?.classList.add(status);
+}
+function updateLabelsAndParcela(state, humidityPercent) {
+    const $status = document.querySelector('.parcela__type');
+    const $percent = document.querySelector('.parcela__percent');
+    $status.textContent = state.toUpperCase();
+    $percent.textContent = `${humidityPercent.toString()}%`;
 }

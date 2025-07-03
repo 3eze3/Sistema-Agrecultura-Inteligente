@@ -1,7 +1,9 @@
-import { changeState } from '../animations/change-state.mjs';
+import { changeState } from '../animations/change-state-btns.mjs';
 import { resetStatus } from '../dom-interaction/reset-status.mjs';
 import { updateStatus } from '../dom-interaction/update-status.mjs';
 import { updateTable } from '../dom-interaction/update-table.mjs';
+import { updateSpeedmeter } from '../dom-interaction/update-speedmeter.mjs';
+import { updateBarAvarage } from '../dom-interaction/update-bar-avarage.mjs';
 export function startMonitor() {
     const $btnStart = document.getElementById('start-monitoring-parcela');
     if (!$btnStart)
@@ -15,6 +17,8 @@ export function startMonitor() {
             const lectura = JSON.parse(event.data);
             updateStatus(lectura.porcentaje);
             updateTable(lectura);
+            updateSpeedmeter(lectura.porcentaje);
+            updateBarAvarage(lectura.porcentaje);
         };
         socket.onclose = () => console.log('WebSocket desconectado');
         socket.onerror = (err) => console.error('WebSocket error:', err);
