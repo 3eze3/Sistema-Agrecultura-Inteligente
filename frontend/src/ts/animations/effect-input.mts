@@ -1,17 +1,13 @@
-import { getInputs } from '../utils/getInputs.mjs'
+import { getInputs } from '../utils/get-inputs.mjs'
+import { getLabels } from '../utils/get-labels.mjs'
+import { toogleClass } from '../utils/toggle-class.mjs'
 
-export function upLabels() {
-	const $inputs = getInputs()
-	const $labels = document.querySelectorAll(
-		'.form__label'
-	) as NodeListOf<HTMLLabelElement>
-	$inputs.forEach(($input, index) => {
-		$input.addEventListener('input', () => {
-			const texto = $input.value
-			$labels[index]?.classList.toggle(
-				'form__label--up-label',
-				texto.trim() != ''
-			)
-		})
-	})
+export function upLabels(
+	input: string,
+	label: string,
+	classNameAnimated: string
+) {
+	const $inputs = getInputs(input)
+	const $labels = getLabels(label)
+	toogleClass($inputs, $labels, classNameAnimated)
 }
