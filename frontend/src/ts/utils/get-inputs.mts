@@ -1,6 +1,6 @@
-export function getInputs(): NodeListOf<HTMLInputElement> {
+export function getInputs(className: string): NodeListOf<HTMLInputElement> {
 	const $inputs = document.querySelectorAll(
-		'.form__input'
+		className
 	) as NodeListOf<HTMLInputElement>
 	return $inputs
 }
