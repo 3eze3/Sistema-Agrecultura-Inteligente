@@ -1,8 +1,9 @@
-import { updateBgs } from "../animations/update-bg.mjs"
+import { updateBgs } from '../animations/update-bg-cards.mjs'
 
 function getRadianes(percent: number) {
 	return (percent * Math.PI) / 100
 }
+
 export function updateSpeedmeter(humidityPercent: number) {
 	const $needle = document.querySelector(
 		'.speedmeter__needle '
@@ -10,7 +11,6 @@ export function updateSpeedmeter(humidityPercent: number) {
 	const $percentLabel = document.querySelector(
 		'.speedmeter__percent '
 	) as HTMLSpanElement
-	//
 	const radianes = getRadianes(humidityPercent)
 	const gradosLine = Math.cos(radianes) * -90
 	const gradosLabel = Math.cos(radianes) * 90
