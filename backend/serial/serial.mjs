@@ -18,14 +18,11 @@ export function initSerial(clients) {
 	})
 
 	parser.on('data', async (line) => {
-		// Cruda: 1023 --> 0%
 		const match = line.match(/Cruda:\s*(\d+)\s*-->\s*(\d+)%/)
 		if (!match) return console.warn('Linea no coincide ' + line)
-		//
 		const timestap = new Date()
 		const porcentaje = parseInt(match[2], 10)
 		const status = porcentaje < 30 ? 'seco' : 'Humedo'
-		//
 		try {
 			const nuevaLectura = await saveLecturaDB({ porcentaje, timestap, status })
 			console.log(`Lectura guardada ${nuevaLectura} SUI`)
