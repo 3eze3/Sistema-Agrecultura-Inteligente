@@ -1,6 +1,25 @@
 // @ts-nocheck
-export function updateHistorica(cleanData: any) {
-	createHumidityChart('container', cleanData, 14000)
+export function updateHistorica(data: any) {
+	const array = pacerInformation(data)
+	const cleanData = removeDuplicates(array)
+	createHumidityChart('container', data, 14000)
+}
+
+function pacerInformation(data) {
+	let porcentaje
+	let time
+	const arry = []
+	for (let i = 0; i < data.length; i++) {
+		porcentaje = data[i].porcentaje
+		time = new Date(data[i].timestamp).getTime()
+		arry.push([time, porcentaje])
+	}
+	return arry
+}
+
+function removeDuplicates(data: any) {
+	const map = new Map(data.map((pt: any) => [pt[0], pt]))
+	return Array.from(map.values()).sort((a: any, b: any) => a[0] - b[0])
 }
 
 declare const Highcharts: any
