@@ -1,7 +1,7 @@
 export function updateHistorica(data) {
     const array = pacerInformation(data);
     const cleanData = removeDuplicates(array);
-    createHumidityChart('container', data, 14000);
+    createHumidityChart('container', cleanData, 14000);
 }
 function pacerInformation(data) {
     let porcentaje;
