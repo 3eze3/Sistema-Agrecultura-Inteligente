@@ -171,11 +171,6 @@ Respuesta:
   <p><em>Análisis visual con múltiples métricas</em></p>
 </div>
 
-## 🎥 Demo en Video
-
-Puedes ver un video demostrativo en mi canal de YouTube:  
-👉 [@eze-root](https://www.youtube.com/@eze-root/videos)
-
 ---
 
 ## 🧪 Pruebas y Validaciones
