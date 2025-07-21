@@ -200,10 +200,7 @@ Este proyecto está bajo la licencia **MIT**. Ver `LICENSE` para más detalles.
 
 ## 👤 Autor
 
-**Ezequiel Cordova** – [tuWebPersonal.com](https://tuWebPersonal.com)
-
-- GitHub: [github.com/tuUsuario](https://github.com/3eze3)
-- LinkedIn: [linkedin.com/in/tuPerfil](https://www.linkedin.com/in/ezequiel-cordova-131ba834a/)
+**Ezequiel Cordova**
 
 ---
 
